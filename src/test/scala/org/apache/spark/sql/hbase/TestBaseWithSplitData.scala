@@ -90,8 +90,8 @@ class TestBaseWithSplitData extends TestBase {
 
       runSql( s"""CREATE TABLE $TableName_b(
                  |  col1 STRING,
-                 |  col2 BYTE,
-                 |  col3 SHORT,
+                 |  col2 TINYINT,
+                 |  col3 SMALLINT,
                  |  col4 INTEGER,
                  |  col5 LONG,
                  |  col6 FLOAT,
@@ -99,8 +99,8 @@ class TestBaseWithSplitData extends TestBase {
                  |)
                  |USING org.apache.spark.sql.hbase.HBaseSource
                  |OPTIONS(
-                 |  tableName $TableName_b,
-                 |  hbaseTableName $HbaseTableName,
+                 |  tableName "$TableName_b",
+                 |  hbaseTableName "$HbaseTableName",
                  |  keyCols "col7, col1, col3",
                  |  colsMapping "col2=cf1.cq11, col4=cf1.cq12, col5=cf2.cq21, col6=cf2.cq22"
                  |)""".stripMargin)
